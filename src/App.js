@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import Saludos, { Envoltura, Saludo1, Saludo2 } from './Contenedores/Ejemplojsx';
+import Libreria from './Contenedores/Ejemplojsx/Libreria';
 
 function App() {
   return (
@@ -18,6 +20,24 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <main>
+        <div>
+          <p>Pagina default de React.js</p>
+        </div>
+        <Saludos />
+        <Saludo1 color="green" bgColor="yellow" text="saludo1 modificado"/>
+        <Saludo2 />
+
+        <Envoltura styles={{backgroundColor: 'lightblue'}}>
+          <Saludo1 />
+          <Saludo2 />
+        </Envoltura>
+
+        <Libreria />
+        <Libreria />
+
+      </main>
     </div>
   );
 }
