@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from "react-router-dom";
+import APIFetching from '../APIFetching';
 import Saludo3, { Saludo1 } from '../Ejemplojsx';
 import Busquedausuarios from '../Optusuarios';
 import Menu from './Menu';
@@ -18,7 +19,10 @@ function Routing() {
                     </Route>
                     <Route path="/buscarusus">
                         <Busquedausuarios />
-                    </Route>                    
+                    </Route>   
+                    <Route path="/api">
+                        <APIFetching />
+                    </Route>                 
                 </Switch>
             </HashRouter>
         </div>

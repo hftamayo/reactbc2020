@@ -1,5 +1,4 @@
-import userEvent from '@testing-library/user-event';
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
 import { SearchContext } from './Context';
 import Item from './Item';
 
@@ -19,7 +18,8 @@ function Lista({}) {
 
     useEffect(() => {
         const lstUsuariosFiltrados = LISTAUSUARIOS.filter(usuario => {
-            return usuario.nombres.toLowerCase().includes(busqueda.toLowerCase());
+            return usuario.nombres.toLowerCase()
+            .includes(busqueda.toLowerCase());
         });
 
         setUsuarios(lstUsuariosFiltrados);

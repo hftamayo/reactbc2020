@@ -14,6 +14,9 @@ function Menu() {
                 <li>
                     <Link to="/buscarusus">Buscar Usuarios</Link>
                 </li>                
+                <li>
+                    <Link to="/api">Ejemplo API Fetching</Link>
+                </li>
             </ul>
         </div>
     );

@@ -49,3 +49,36 @@
 .Lista-usuario{
   flex: 1;  
 }
+
+ul li{
+  list-style: none;
+  display: inline;
+  margin: 15px;
+}
+
+table tr th{
+  border: #282c34 2px solid;
+}
+
+table tr td{
+  border: #61dafb 1px solid;
+}
+
+main {
+  margin: 20px;
+}
+
+.App-frmusers{
+  margin: 20px;
+  display: flex;
+}
+
+.frmbox{
+  padding: 10px;
+  margin: 10px;
+}
+
+imput, button, select{
+  font-size: 12px;
+  padding: 12px;
+}
