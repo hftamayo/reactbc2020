@@ -5,7 +5,7 @@ import Fila from './Fila';
 function List() {
     {/*deprecado por agregacion usuarios const [usuarios, setUsuarios] = useState([]);*/}
     const [usuarios, setUsuarios] = useState([]);
-    const [pagina, setPagina] = useState(65);
+    const [pagina, setPagina] = useState(68);
 
     const fetchUsuarios = useCallback(
         async () => {

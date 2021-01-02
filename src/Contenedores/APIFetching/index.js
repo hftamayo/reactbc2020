@@ -1,12 +1,13 @@
 import React from 'react'
+import Form from './Form'
 import List from './List'
 
 
 function APIFetching() {
     return (
-        <div>
-
-                <List />
+        <div className="App-frmusers">
+            <List />
+            <Form />            
         </div>
     )
 }
