@@ -1,4 +1,5 @@
 import React from 'react'
+import UsersProvider from './Contenedor'
 import Form from './Form'
 import List from './List'
 
@@ -6,8 +7,10 @@ import List from './List'
 function APIFetching() {
     return (
         <div className="App-frmusers">
-            <List />
-            <Form />            
+            <UsersProvider>
+                <List />
+                <Form />            
+            </UsersProvider>
         </div>
     )
 }

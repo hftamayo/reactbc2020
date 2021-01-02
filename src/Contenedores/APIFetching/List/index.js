@@ -1,10 +1,14 @@
 import axios from 'axios';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { UsersContext } from '../Contenedor';
 import Fila from './Fila';
 
 function List() {
-    {/*deprecado por agregacion usuarios const [usuarios, setUsuarios] = useState([]);*/}
+    {/*deprecado por uso del context para refrescar toda la vista
     const [usuarios, setUsuarios] = useState([]);
+    UsersContext lo obtengo de Contenedor.js
+    */}
+    const [usuarios, setUsuarios] = useContext(UsersContext);
     const [pagina, setPagina] = useState(68);
 
     const fetchUsuarios = useCallback(
@@ -16,7 +20,7 @@ function List() {
             console.log({ data });
             setUsuarios(data.data);
         },
-        [pagina]
+        [pagina, setUsuarios]
     );
 
     useEffect(() => {

@@ -78,7 +78,7 @@ main {
   margin: 10px;
 }
 
-imput, button, select{
+input, button, submit, select{
   font-size: 12px;
   padding: 12px;
 }
