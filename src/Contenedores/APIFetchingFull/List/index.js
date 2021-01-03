@@ -2,6 +2,17 @@ import axios from 'axios';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { UsersContext } from '../Contenedor';
 import Fila from './Fila';
+import styled from 'styled-components';
+
+const ButtonAdd = styled.button
+    `color: white;
+    background-color: blue;
+
+    &:hover{
+        color: yellow;
+        background-color: black; 
+    }
+`;
 
 function List() {
     {/*deprecado por uso del context para refrescar toda la vista
@@ -30,11 +41,11 @@ function List() {
 
     return (
         <div className="frmbox">
-            <input type="number" value={pagina} onChange={(event) => 
+            <input type="number" className="paginacionctl" value={pagina} onChange={(event) => 
                 setPagina(event.target.value)} />
-                <button type="button" onClick={() => setCurrent({})}>
+                <ButtonAdd type="button" onClick={() => setCurrent({})}>
                     +Agregar
-                </button>
+                </ButtonAdd>
             <table>
                 <thead>
                     <tr>
