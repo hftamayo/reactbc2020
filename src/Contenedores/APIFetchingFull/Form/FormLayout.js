@@ -2,11 +2,17 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 /*onSubmit es pasado por Form.index.js*/
-function FormLayout({onSubmit}) {
+function FormLayout({onSubmit, currentValues}) {
+    const defaultValues = {
+        ...currentValues,
+        status: currentValues.status === 'Active',
+      };
 
     /*hook facilitado por react-hook-form*/
     /* los consts siguientes son reservados de la libreria*/
-    const {register, handleSubmit, reset} = useForm();
+    const {register, handleSubmit, reset} = useForm({
+        defaultValues,
+    });
 
     return (
         <div>

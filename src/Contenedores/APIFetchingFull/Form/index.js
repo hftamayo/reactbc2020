@@ -14,6 +14,8 @@ function Form() {
 
     const isAddMode = !current.id;
 
+    /* funcion para agregar registro */
+
      const postDatosFrmUsuarios = async (mascaraEstatus) => {
         const response = 
         await axios.post('https://gorest.co.in/public-api/users', 
@@ -21,6 +23,7 @@ function Form() {
         {
             headers: {
                 Accept: 'application/json',
+                'Content-type': 'application/json',
                 Authorization: `Bearer ${tokenPersistencia}`,
             },
         });
@@ -29,6 +32,33 @@ function Form() {
             return [...currentList, response.data.data]
         });
     };
+
+    /* funcion para actualizar registro */
+    const putDatosFrmUsuarios = async (payload) => {
+        const response = await axios.put(
+          `https://gorest.co.in/public-api/users/${current.id}`,
+          payload,
+          {
+            headers: {
+              Accept: 'application/json',
+              'Content-type': 'application/json',
+              Authorization: `Bearer ${tokenPersistencia}`,
+            },
+          }
+        );
+        console.log('resultado PUT', response.data.data);
+        setUsuarios(function (currentList) {
+          return currentList.map((usuarios) => {
+            if ( usuarios.id === response.data.data.id) {
+              return {
+                ...usuarios,
+                ...response.data.data,
+              };
+            }
+            return usuarios;
+          });
+        });
+      };
 
     /*almacena los valores que se digitaron en el formulario*/
     const onSubmit = (valoresfrm) => {

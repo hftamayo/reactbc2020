@@ -8,7 +8,7 @@ token = 'cf8e9a6efb3418150327848372fd4a16ee1798b68f142e4a694d8465462dce84';
 function Fila({ usuario }) {
 
     const {
-        users: [, setUsers],
+        usuarios: [, setUsuarios],
         current: [, setCurrent],
     } = useContext(UsersContext);
 
@@ -25,7 +25,7 @@ function Fila({ usuario }) {
         );//fin de la funcion delete de Axios
 
         console.log('comando DELETE: ', response);
-        setUsers(function (currentUsers){
+        setUsuarios(function (currentUsers){
             return currentUsers.filter((currentUser) => {
                 return currentUser.id !== usuario.id;
             });
@@ -50,8 +50,8 @@ function Fila({ usuario }) {
                 {usuario.status}
             </td>    
             <td>
-                <button onClick={() => setCurrent(usuario)}>Edit</button>
-                <button onClick={() => deleteUser()}>Borrar</button>                
+                <button onClick={() => setCurrent(usuario)}>E</button>
+                <button onClick={() => deleteUser()}>X</button>                
 
             </td>                                            
         </tr>

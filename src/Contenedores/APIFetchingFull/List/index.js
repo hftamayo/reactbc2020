@@ -8,8 +8,11 @@ function List() {
     const [usuarios, setUsuarios] = useState([]);
     UsersContext lo obtengo de Contenedor.js
     */}
-    const [usuarios, setUsuarios] = useContext(UsersContext);
-    const [pagina, setPagina] = useState(68);
+    const {
+        usuarios: [usuarios, setUsuarios],
+        current: [, setCurrent],
+    } = useContext(UsersContext);
+    const [pagina, setPagina] = useState(65);
 
     const fetchUsuarios = useCallback(
         async () => {
@@ -19,9 +22,7 @@ function List() {
             );
             console.log({ data });
             setUsuarios(data.data);
-        },
-        [pagina, setUsuarios]
-    );
+        }, [pagina, setUsuarios]);
 
     useEffect(() => {
         fetchUsuarios();
