@@ -4,10 +4,12 @@ export const UsersContext = createContext();
 
 function UsersProvider (props) {
     const [usuarios, setUsuarios] = useState([]);
+    const [current, setCurrent] = useState({});
 
     return(
         <UsersContext.Provider 
-        value={[usuarios, setUsuarios]} >
+        value={{usuarios: [usuarios, setUsuarios], 
+        current: [current, setCurrent] }} >
         {props.children}
     </UsersContext.Provider>
     );

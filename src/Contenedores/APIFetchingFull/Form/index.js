@@ -7,9 +7,14 @@ const tokenPersistencia =
 'cf8e9a6efb3418150327848372fd4a16ee1798b68f142e4a694d8465462dce84';
 
 function Form() {
-    const [usuarios, setUsuarios] = useContext(UsersContext);
+    const {
+        usuarios: [, setUsuarios],
+        current: [current],
+    } = useContext(UsersContext);
 
-    const postDatosFrmUsuarios = async (mascaraEstatus) => {
+    const isAddMode = !current.id;
+
+     const postDatosFrmUsuarios = async (mascaraEstatus) => {
         const response = 
         await axios.post('https://gorest.co.in/public-api/users', 
         mascaraEstatus, 
@@ -19,10 +24,10 @@ function Form() {
                 Authorization: `Bearer ${tokenPersistencia}`,
             },
         });
-        console.log({ response });
+        console.log('resultado POST ', response.data.data);
         setUsuarios((currentList) => {
             return [...currentList, response.data.data]
-        })
+        });
     };
 
     /*almacena los valores que se digitaron en el formulario*/
@@ -32,16 +37,23 @@ function Form() {
             ...valoresfrm,
             status: valoresfrm.status ? 'Active': 'Inactive'
         };
-        console.log({ mascaraEstatus });
+        console.log({ valoresfrm, mascaraEstatus, isAddMode });
 
-        postDatosFrmUsuarios(mascaraEstatus);
-      
+        if (isAddMode){
+            postDatosFrmUsuarios(mascaraEstatus);
+        } else {
+            putDatosFrmUsuarios(mascaraEstatus);
+        }
     };
 
     return (
         <div className="frmbox">
             {/*constante onSubmit sera enviado a FormLayout*/}
-            <FormLayout onSubmit={onSubmit}/>
+            <FormLayout 
+            onSubmit={onSubmit} 
+            key={current.id}
+            currentValues={current}
+            />
         </div>
     );
 }

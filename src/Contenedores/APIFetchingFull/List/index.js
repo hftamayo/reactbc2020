@@ -31,6 +31,9 @@ function List() {
         <div className="frmbox">
             <input type="number" value={pagina} onChange={(event) => 
                 setPagina(event.target.value)} />
+                <button type="button" onClick={() => setCurrent({})}>
+                    +Agregar
+                </button>
             <table>
                 <thead>
                     <tr>
@@ -38,7 +41,8 @@ function List() {
                         <th>Nombre</th>
                         <th>Correo</th>
                         <th>Genero</th>
-                        <th>Status</th>                                                                                                
+                        <th>Status</th>   
+                        <th>Actions</th>                                                                                             
                     </tr>
                 </thead>
                 <tbody>

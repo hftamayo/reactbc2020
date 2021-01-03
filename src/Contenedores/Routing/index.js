@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from "react-router-dom";
 import APIFetching from '../APIFetching';
+import APIFetchingFull from '../APIFetchingFull';
 import Saludo3, { Saludo1 } from '../Ejemplojsx';
 import Busquedausuarios from '../Optusuarios';
 import Menu from './Menu';
@@ -23,6 +24,10 @@ function Routing() {
                     <Route path="/api">
                         <APIFetching />
                     </Route>                 
+                    <Route path="/apiffull">
+                        <APIFetchingFull />
+                    </Route>                 
+
                 </Switch>
             </HashRouter>
         </div>

@@ -17,6 +17,9 @@ function Menu() {
                 <li>
                     <Link to="/api">Ejemplo API Fetching</Link>
                 </li>
+                <li>
+                    <Link to="/apiffull">API Fetching Full</Link>
+                </li>                
             </ul>
         </div>
     );

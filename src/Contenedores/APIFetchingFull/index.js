@@ -4,7 +4,7 @@ import Form from './Form'
 import List from './List'
 
 
-function APIFetching() {
+function APIFetchingFull() {
     return (
         <div className="App-frmusers">
             <UsersProvider>
@@ -15,4 +15,4 @@ function APIFetching() {
     )
 }
 
-export default APIFetching
+export default APIFetchingFull
