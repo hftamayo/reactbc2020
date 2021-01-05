@@ -1,13 +1,13 @@
-const { useReducer } = require("react");
 const initialState = {
-
+    theme: 'dark',
+    lang: 'en-US',
 }
 
 const mainReducer = (state = initialState, action) => {
     switch (action.type) {
 
-    case typeName:
-        return { ...state, ...action.payload };
+    case 'main/setTheme':
+        return { ...state, theme: action.payload };
 
     default:
         return state;
